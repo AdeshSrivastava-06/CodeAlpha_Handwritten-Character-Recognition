@@ -28,7 +28,6 @@ def preprocess_drawn(img_array):
     img = cv2.cvtColor(img_array.astype(np.uint8), cv2.COLOR_RGBA2GRAY)
     img = cv2.bitwise_not(img)
     img = cv2.resize(img, (28, 28), interpolation=cv2.INTER_AREA)
-    # Fix mirror issue
     img = np.fliplr(img)
     img = img.astype('float32') / 255.0
     return img.reshape(1, 28, 28, 1)
@@ -38,7 +37,6 @@ def preprocess_uploaded(pil_img):
     img = ImageOps.invert(img)
     img = np.array(img)
     img = cv2.resize(img, (28, 28), interpolation=cv2.INTER_AREA)
-    # Fix mirror issue
     img = np.fliplr(img)
     img = img.astype('float32') / 255.0
     return img.reshape(1, 28, 28, 1)
