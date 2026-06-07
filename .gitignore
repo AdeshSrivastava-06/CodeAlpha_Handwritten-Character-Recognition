@@ -1,5 +1,4 @@
 emnist-*.csv
 emnist-*-mapping.txt
 emnist_source_files/
-notebook.ipynb
 __pycache__/
